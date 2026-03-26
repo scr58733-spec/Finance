@@ -17,46 +17,60 @@ nav{background:#0d1424;border-bottom:1px solid #1e2d42;padding:calc(env(safe-are
 .nbtns{display:flex;gap:8px}
 .badd{background:#e8c87a;color:#0a0f1c;border:none;padding:10px 18px;border-radius:10px;font-weight:700;font-size:.85rem;cursor:pointer}
 .bexp{background:#1a2537;color:#8a9ab5;border:1px solid #1e2d42;padding:10px 14px;border-radius:10px;font-size:.85rem;cursor:pointer}
+
+/* Warning Banner */
+.warn-banner{display:none;margin:12px 14px 0;background:rgba(240,107,122,.12);border:1px solid rgba(240,107,122,.35);border-radius:12px;padding:12px 14px;align-items:center;gap:10px}
+.warn-banner.show{display:flex}
+.warn-icon{font-size:1.4rem;flex-shrink:0;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.warn-text{font-size:.82rem;line-height:1.4}
+.warn-title{font-weight:700;color:#f06b7a;font-size:.88rem}
+.warn-sub{color:#c0707a;font-size:.75rem;margin-top:2px}
+
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px}
-.card{background:#161f2e;border:1px solid #1e2d42;border-radius:12px;padding:14px;position:relative;overflow:hidden}
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.card{background:#161f2e;border:1px solid #1e2d42;border-radius:12px;padding:14px;position:relative;overflow:hidden;transition:.2s}
+.card::before{content:’’;position:absolute;top:0;left:0;right:0;height:2px}
 .ca::before{background:linear-gradient(90deg,#e8c87a,transparent)}
 .cg::before{background:linear-gradient(90deg,#52c99a,transparent)}
 .cr::before{background:linear-gradient(90deg,#f06b7a,transparent)}
 .cb::before{background:linear-gradient(90deg,#6aadff,transparent)}
-.clb{font-size:.58rem;text-transform:uppercase;color:#8a9ab5;letter-spacing:.1em;margin-bottom:8px}
-.clv{font-family:'Menlo','Courier New',monospace;font-size:1rem;font-weight:600}
+.cb.danger{border-color:rgba(240,107,122,.5);background:rgba(240,107,122,.06)}
+.cb.danger::before{background:linear-gradient(90deg,#f06b7a,transparent)}
+.clb{font-size:.58rem;text-transform:uppercase;color:#8a9ab5;letter-spacing:.1em;margin-bottom:6px;display:flex;align-items:center;gap:4px}
+.clv{font-family:‘Menlo’,‘Courier New’,monospace;font-size:1rem;font-weight:600}
 .ca .clv{color:#e8c87a}.cg .clv{color:#52c99a}.cr .clv{color:#f06b7a}.cb .clv{color:#6aadff}
+.cb.danger .clv{color:#f06b7a}
+
 .fbar{display:flex;gap:8px;padding:0 14px 8px;overflow-x:auto}
 .fbar::-webkit-scrollbar{display:none}
 .chip{background:#161f2e;border:1px solid #1e2d42;color:#8a9ab5;padding:5px 12px;border-radius:20px;font-size:.72rem;cursor:pointer;white-space:nowrap}
 .chip.on{background:#e8c87a;color:#0a0f1c;border-color:#e8c87a;font-weight:700}
 .shdr{display:flex;justify-content:space-between;padding:6px 16px;font-size:.62rem;text-transform:uppercase;color:#8a9ab5;letter-spacing:.1em}
 .rlist{padding:0 14px 80px;display:flex;flex-direction:column;gap:10px}
-/* Record item */
 .ritem{background:#161f2e;border:1px solid #1e2d42;border-radius:12px;overflow:hidden}
 .rmain{padding:13px 14px;cursor:pointer}
 .rtop{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.rdate{font-family:'Menlo',monospace;font-size:.82rem;color:#e8c87a;font-weight:600}
+.rdate{font-family:‘Menlo’,monospace;font-size:.82rem;color:#e8c87a;font-weight:600}
 .rbadge{font-size:.6rem;font-weight:700;padding:2px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:.05em}
 .badge-ex{background:rgba(240,107,122,.15);color:#f06b7a}
 .badge-in{background:rgba(82,201,154,.15);color:#52c99a}
 .badge-op{background:rgba(232,200,122,.15);color:#e8c87a}
 .badge-full{background:rgba(106,173,255,.15);color:#6aadff}
-.ramt{font-family:'Menlo',monospace;font-size:1.05rem;font-weight:700}
+.ramt{font-family:‘Menlo’,monospace;font-size:1.05rem;font-weight:700}
 .ramt.ex{color:#f06b7a}.ramt.in{color:#52c99a}.ramt.op{color:#e8c87a}.ramt.bl{color:#6aadff}
+.ramt.neg{color:#f06b7a}
 .rnote{font-size:.75rem;color:#8a9ab5;margin-top:6px;line-height:1.4}
-/* Full record grid */
 .rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:4px}
 .rfl{font-size:.55rem;text-transform:uppercase;color:#8a9ab5}
-.rfv{font-family:'Menlo',monospace;font-size:.78rem;margin-top:2px}
+.rfv{font-family:‘Menlo’,monospace;font-size:.78rem;margin-top:2px}
 .racts{display:flex;border-top:1px solid #1e2d42;max-height:0;overflow:hidden;transition:max-height .2s}
 .racts.open{max-height:56px}
 .ract{flex:1;padding:12px;border:none;background:transparent;cursor:pointer;font-size:.78rem;font-weight:600;display:flex;align-items:center;justify-content:center;gap:4px}
 .ract.e{color:#6aadff}.ract.d{color:#f06b7a;border-left:1px solid #1e2d42}
 .empty{text-align:center;padding:56px 20px;color:#8a9ab5}
 .ei{font-size:2.5rem;margin-bottom:12px;opacity:.3}
-/* Overlay */
+
+/* Overlays */
 .ov{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:100;display:flex;align-items:flex-end;visibility:hidden;opacity:0;transition:opacity .2s,visibility .2s}
 .ov.open{visibility:visible;opacity:1}
 .sheet{background:#111827;border-radius:20px 20px 0 0;border-top:1px solid #1e2d42;width:100%;max-height:90vh;overflow-y:auto;padding-bottom:32px;transform:translateY(100%);transition:transform .28s cubic-bezier(.2,.9,.3,1);position:relative}
@@ -67,7 +81,7 @@ nav{background:#0d1424;border-bottom:1px solid #1e2d42;padding:calc(env(safe-are
 .xcl{position:absolute;top:12px;right:14px;background:#1a2537;border:1px solid #1e2d42;color:#8a9ab5;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center}
 .fbody{padding:0 16px;display:flex;flex-direction:column;gap:12px}
 .fg label{display:block;font-size:.6rem;text-transform:uppercase;color:#8a9ab5;letter-spacing:.1em;margin-bottom:5px}
-.fi{background:#161f2e;border:1.5px solid #1e2d42;border-radius:10px;color:#e8edf5;padding:12px 14px;font-size:1rem;font-family:'Menlo',monospace;width:100%;outline:none;-webkit-appearance:none}
+.fi{background:#161f2e;border:1.5px solid #1e2d42;border-radius:10px;color:#e8edf5;padding:12px 14px;font-size:1rem;font-family:‘Menlo’,monospace;width:100%;outline:none;-webkit-appearance:none}
 .fi:focus{border-color:#b8985a}
 .fi.err{border-color:#f06b7a}
 input[type=date].fi{color-scheme:dark}
@@ -76,11 +90,12 @@ textarea.fi{resize:none;font-family:-apple-system,sans-serif;font-size:.9rem;lin
 .divr{height:1px;background:#1e2d42}
 .comp{background:#080c14;border:1px solid #1e2d42;border-radius:10px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center}
 .compl{font-size:.7rem;color:#8a9ab5}
-.compv{font-family:'Menlo',monospace;font-size:1rem;font-weight:700;color:#6aadff}
+.compv{font-family:‘Menlo’,monospace;font-size:1rem;font-weight:700;color:#6aadff}
 .compv.neg{color:#f06b7a}
 .sbtn{border:none;width:100%;padding:14px;border-radius:11px;font-size:.95rem;font-weight:700;cursor:pointer;margin-top:4px;color:#0a0f1c}
 .sbtn.ex{background:#f06b7a}.sbtn.in{background:#52c99a}.sbtn.op{background:#e8c87a}.sbtn.full{background:#6aadff}
-/* Type selector */
+
+/* Type grid */
 .type-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:0 16px 4px}
 .type-btn{border:1.5px solid #1e2d42;background:#161f2e;border-radius:14px;padding:16px 12px;cursor:pointer;text-align:center;transition:.15s all}
 .type-btn:active{transform:scale(.97)}
@@ -91,12 +106,14 @@ textarea.fi{resize:none;font-family:-apple-system,sans-serif;font-size:.9rem;lin
 .type-btn.t-in{border-color:rgba(82,201,154,.4)}.type-btn.t-in .tbl{color:#52c99a}
 .type-btn.t-op{border-color:rgba(232,200,122,.4)}.type-btn.t-op .tbl{color:#e8c87a}
 .type-btn.t-full{border-color:rgba(106,173,255,.4)}.type-btn.t-full .tbl{color:#6aadff}
+
 /* Export */
 .eopt{display:flex;align-items:center;gap:12px;padding:15px 18px;cursor:pointer;border-bottom:1px solid #1e2d42}
 .eopt:last-child{border-bottom:none}
 .eico{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
 .ecsv{background:rgba(82,201,154,.12)}.epdf{background:rgba(240,107,122,.12)}
 .et{font-size:.88rem;font-weight:600}.es{font-size:.7rem;color:#8a9ab5;margin-top:2px}
+
 /* Confirm */
 .cov{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;visibility:hidden;opacity:0;transition:opacity .15s,visibility .15s}
 .cov.open{visibility:visible;opacity:1}
@@ -107,26 +124,38 @@ textarea.fi{resize:none;font-family:-apple-system,sans-serif;font-size:.9rem;lin
 .cbtns{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #1e2d42}
 .cbtn{padding:13px;border:none;background:transparent;cursor:pointer;font-size:.85rem;font-weight:600}
 .cno{color:#8a9ab5}.cyes{color:#f06b7a;border-left:1px solid #1e2d42}
+
 /* Toast */
 .tst{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(10px);background:#1a2537;border:1px solid #1e2d42;border-radius:20px;padding:9px 18px;font-size:.8rem;opacity:0;transition:.2s;pointer-events:none;z-index:999;white-space:nowrap}
 .tst.show{opacity:1;transform:translateX(-50%)}
 </style>
+
 </head>
 <body>
 
 <nav>
-  <div><div class="ntitle">收支記錄</div><div class="nsub">Finance Tracker</div></div>
+  <div><div class="ntitle">收支記錄</div><div class="nsub">Finance Tracker v4</div></div>
   <div class="nbtns">
     <button class="bexp" id="btnExp">⬆ 匯出</button>
     <button class="badd" id="btnAdd">＋ 新增</button>
   </div>
 </nav>
 
+<!-- 警示橫幅 -->
+
+<div class="warn-banner" id="warnBanner">
+  <div class="warn-icon">⚠️</div>
+  <div class="warn-text">
+    <div class="warn-title">餘額警示</div>
+    <div class="warn-sub" id="warnMsg">收入餘額偏低，請注意支出！</div>
+  </div>
+</div>
+
 <div class="cards">
   <div class="card ca"><div class="clb">結餘合計</div><div class="clv" id="s1">0.00</div></div>
   <div class="card cg"><div class="clb">本期收入合計</div><div class="clv" id="s2">0.00</div></div>
   <div class="card cr"><div class="clb">支出合計</div><div class="clv" id="s3">0.00</div></div>
-  <div class="card cb"><div class="clb">收入餘額合計</div><div class="clv" id="s4">0.00</div></div>
+  <div class="card cb" id="balCard"><div class="clb" id="balLabel">收入餘額合計</div><div class="clv" id="s4">0.00</div></div>
 </div>
 
 <div class="fbar" id="fbar"></div>
@@ -141,32 +170,16 @@ textarea.fi{resize:none;font-family:-apple-system,sans-serif;font-size:.9rem;lin
     <div class="stit full" style="padding-bottom:12px">選擇新增類型</div>
     <button class="xcl" id="btnTypeClose">✕</button>
     <div class="type-grid">
-      <div class="type-btn t-ex" id="tEx">
-        <div class="tbi">💸</div>
-        <div class="tbl">支出</div>
-        <div class="tbs">記錄花費</div>
-      </div>
-      <div class="type-btn t-in" id="tIn">
-        <div class="tbi">💰</div>
-        <div class="tbl">本期收入</div>
-        <div class="tbs">記錄收入</div>
-      </div>
-      <div class="type-btn t-op" id="tOp">
-        <div class="tbi">🏦</div>
-        <div class="tbl">結餘</div>
-        <div class="tbs">記錄結餘</div>
-      </div>
-      <div class="type-btn t-full" id="tFull">
-        <div class="tbi">📋</div>
-        <div class="tbl">完整紀錄</div>
-        <div class="tbs">同時填所有欄位</div>
-      </div>
+      <div class="type-btn t-ex" id="tEx"><div class="tbi">💸</div><div class="tbl">支出</div><div class="tbs">記錄花費</div></div>
+      <div class="type-btn t-in" id="tIn"><div class="tbi">💰</div><div class="tbl">本期收入</div><div class="tbs">記錄收入</div></div>
+      <div class="type-btn t-op" id="tOp"><div class="tbi">🏦</div><div class="tbl">結餘</div><div class="tbs">可輸入負數</div></div>
+      <div class="type-btn t-full" id="tFull"><div class="tbi">📋</div><div class="tbl">完整紀錄</div><div class="tbs">同時填所有欄位</div></div>
     </div>
     <div style="height:8px"></div>
   </div>
 </div>
 
-<!-- 快速新增（單項） -->
+<!-- 快速新增 -->
 
 <div class="ov" id="ovQuick">
   <div class="sheet">
@@ -176,7 +189,7 @@ textarea.fi{resize:none;font-family:-apple-system,sans-serif;font-size:.9rem;lin
     <div class="fbody">
       <div class="fg"><label>日期</label><input class="fi" type="date" id="qDate"></div>
       <div class="divr"></div>
-      <div class="fg"><label id="qAmtLabel">金額</label><input class="fi" type="number" inputmode="decimal" placeholder="0.00" id="qAmt"><span class="fe" id="eqAmt"></span></div>
+      <div class="fg"><label id="qAmtLabel">金額</label><input class="fi" type="number" placeholder="0.00" id="qAmt"><span class="fe" id="eqAmt"></span></div>
       <div class="fg"><label>備註（選填）</label><textarea class="fi" placeholder="說明..." id="qNote" rows="3"></textarea></div>
       <button class="sbtn" id="btnQuickSave">💾 儲存</button>
     </div>
@@ -193,7 +206,7 @@ textarea.fi{resize:none;font-family:-apple-system,sans-serif;font-size:.9rem;lin
     <div class="fbody">
       <div class="fg"><label>日期</label><input class="fi" type="date" id="fDate"></div>
       <div class="divr"></div>
-      <div class="fg"><label>結餘</label><input class="fi" type="number" inputmode="decimal" placeholder="0.00" id="fOp"><span class="fe" id="eOp"></span></div>
+      <div class="fg"><label>結餘（可輸入負數）</label><input class="fi" type="number" placeholder="0.00" id="fOp"><span class="fe" id="eOp"></span></div>
       <div class="fg"><label>本期收入</label><input class="fi" type="number" inputmode="decimal" placeholder="0.00" id="fIn"><span class="fe" id="eIn"></span></div>
       <div class="fg"><label>支出</label><input class="fi" type="number" inputmode="decimal" placeholder="0.00" id="fEx"><span class="fe" id="eEx"></span></div>
       <div class="comp"><span class="compl">本期收入餘額（自動計算）</span><span class="compv" id="fBal">0.00</span></div>
@@ -245,27 +258,50 @@ var tt;
 function toast(m){var e=document.getElementById('tst');e.textContent=m;e.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){e.classList.remove('show');},2200);}
 function render(){srt();rCards();rFilters();rList();}
 
-function rCards(){
+function calcTotals(){
   var r=gf(),op=0,inc=0,ex=0,bl=0;
-  r.forEach(function(x){
-    if(x.type==='full'){op+=x.op||0;inc+=x.inc||0;ex+=x.ex||0;bl+=(x.op+x.inc-x.ex);}
-    else if(x.type==='ex'){ex+=x.amt||0;}
-    else if(x.type==='in'){inc+=x.amt||0;}
-    else if(x.type==='op'){op+=x.amt||0;}
-  });
-  bl = bl + op + inc - ex; // for single entries
-  // recalculate properly
-  op=0;inc=0;ex=0;bl=0;
   r.forEach(function(x){
     if(x.type==='full'){op+=x.op||0;inc+=x.inc||0;ex+=x.ex||0;bl+=((x.op||0)+(x.inc||0)-(x.ex||0));}
     else if(x.type==='ex'){ex+=x.amt||0;}
     else if(x.type==='in'){inc+=x.amt||0;}
     else if(x.type==='op'){op+=x.amt||0;}
   });
-  document.getElementById('s1').textContent=fm(op);
-  document.getElementById('s2').textContent=fm(inc);
-  document.getElementById('s3').textContent=fm(ex);
-  document.getElementById('s4').textContent=fm(bl);
+  return{op:op,inc:inc,ex:ex,bl:bl};
+}
+
+function rCards(){
+  var t=calcTotals();
+  document.getElementById('s1').textContent=fm(t.op);
+  document.getElementById('s2').textContent=fm(t.inc);
+  document.getElementById('s3').textContent=fm(t.ex);
+  document.getElementById('s4').textContent=fm(t.bl);
+
+  // Warning logic
+  var card=document.getElementById('balCard');
+  var banner=document.getElementById('warnBanner');
+  var msg=document.getElementById('warnMsg');
+  var lbl=document.getElementById('balLabel');
+
+  if(t.bl<0){
+    card.className='card cb danger';
+    lbl.innerHTML='收入餘額合計 🚨';
+    banner.classList.add('show');
+    msg.textContent='收入餘額為負數（'+fm(t.bl)+'），請立即注意支出！';
+  } else if(t.bl===0&&recs.length>0){
+    card.className='card cb danger';
+    lbl.innerHTML='收入餘額合計 ⚠️';
+    banner.classList.add('show');
+    msg.textContent='收入餘額為零，已無可用餘額！';
+  } else if(t.bl>0&&t.inc>0&&t.bl<t.inc*0.2){
+    card.className='card cb danger';
+    lbl.innerHTML='收入餘額合計 ⚠️';
+    banner.classList.add('show');
+    msg.textContent='收入餘額僅剩 '+fm(t.bl)+'，不足收入的 20%，請注意！';
+  } else {
+    card.className='card cb';
+    lbl.innerHTML='收入餘額合計';
+    banner.classList.remove('show');
+  }
 }
 
 function rFilters(){
@@ -284,7 +320,6 @@ function typeMeta(type){
   if(type==='op')return{label:'結餘',badge:'badge-op',cls:'op',icon:'🏦'};
   return{label:'完整紀錄',badge:'badge-full',cls:'bl',icon:'📋'};
 }
-
 function esc(s){return s?s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'):''}
 
 function rList(){
@@ -299,10 +334,11 @@ function rList(){
       var b=(x.op||0)+(x.inc||0)-(x.ex||0);
       body='<div class="rtop"><span class="rdate">'+x.date+'</span><span class="rbadge '+m.badge+'">'+m.icon+' '+m.label+'</span></div>';
       body+='<div class="rgrid"><div><div class="rfl">結餘</div><div class="rfv">'+fm(x.op||0)+'</div></div><div><div class="rfl">本期收入</div><div class="rfv" style="color:#52c99a">'+fm(x.inc||0)+'</div></div><div><div class="rfl">支出</div><div class="rfv" style="color:#f06b7a">'+fm(x.ex||0)+'</div></div></div>';
-      body+='<div style="margin-top:6px;font-family:Menlo,monospace;font-size:.8rem">收入餘額：<span class="ramt '+(b>=0?'bl':'ex')+'">'+fm(b)+'</span></div>';
+      body+='<div style="margin-top:6px;font-size:.78rem">收入餘額：<span style="font-family:Menlo,monospace;font-weight:700;color:'+(b>=0?'#6aadff':'#f06b7a')+'">'+fm(b)+(b<0?' 🚨':b===0?' ⚠️':'')+'</span></div>';
     } else {
+      var warn=x.type==='op'&&(x.amt||0)<0?' 🚨':'';
       body='<div class="rtop"><span class="rdate">'+x.date+'</span><span class="rbadge '+m.badge+'">'+m.icon+' '+m.label+'</span></div>';
-      body+='<div class="ramt '+m.cls+'">'+fm(x.amt||0)+'</div>';
+      body+='<div class="ramt '+m.cls+((x.amt||0)<0?' neg':'')+'">'+fm(x.amt||0)+warn+'</div>';
     }
     if(x.note){body+='<div class="rnote">📝 '+esc(x.note)+'</div>';}
     h+='<div class="ritem"><div class="rmain" data-id="'+x.id+'">'+body+'</div><div class="racts" id="act-'+x.id+'"><button class="ract e" data-id="'+x.id+'">✏️ 修改</button><button class="ract d" data-id="'+x.id+'" data-date="'+x.date+'">🗑 刪除</button></div></div>';
@@ -322,19 +358,15 @@ function tRow(id){
   openRow=el.classList.toggle('open')?id:null;
 }
 
-// Type selector
 function openTypeSheet(){document.getElementById('ovType').classList.add('open');}
 function closeTypeSheet(){document.getElementById('ovType').classList.remove('open');}
 
-// Quick form
 function openQuick(type){
-  closeTypeSheet();
-  curType=type;
-  editId=null;
+  closeTypeSheet();curType=type;editId=null;
   var m=typeMeta(type);
   document.getElementById('quickTit').textContent='新增'+m.label;
   document.getElementById('quickTit').className='stit '+m.cls;
-  document.getElementById('qAmtLabel').textContent=m.label+'金額';
+  document.getElementById('qAmtLabel').textContent=m.label+'金額'+(type==='op'?'（可輸入負數）':'');
   document.getElementById('btnQuickSave').className='sbtn '+m.cls;
   document.getElementById('qDate').value=td();
   document.getElementById('qAmt').value='';
@@ -349,11 +381,7 @@ function saveQuick(){
   var date=document.getElementById('qDate').value;
   var amt=document.getElementById('qAmt').value;
   var note=document.getElementById('qNote').value.trim();
-  if(amt===''||isNaN(parseFloat(amt))){
-    document.getElementById('eqAmt').textContent='請輸入金額';
-    document.getElementById('qAmt').classList.add('err');
-    return;
-  }
+  if(amt===''||isNaN(parseFloat(amt))){document.getElementById('eqAmt').textContent='請輸入金額';document.getElementById('qAmt').classList.add('err');return;}
   var m=typeMeta(curType);
   var rec={id:editId||gid(),type:curType,date:date,amt:parseFloat(amt),note:note};
   if(editId){for(var i=0;i<recs.length;i++){if(recs[i].id===editId){recs[i]=rec;break;}}toast('✅ 已更新');}
@@ -361,7 +389,6 @@ function saveQuick(){
   sv();closeQuick();render();
 }
 
-// Full form
 function calcBal(){
   var o=parseFloat(document.getElementById('fOp').value)||0;
   var i=parseFloat(document.getElementById('fIn').value)||0;
@@ -369,14 +396,13 @@ function calcBal(){
   var b=o+i-e,el=document.getElementById('fBal');
   el.textContent=fm(b);el.className='compv'+(b<0?' neg':'');
 }
+
 function openFull(){
-  closeTypeSheet();
-  editId=null;
+  closeTypeSheet();editId=null;
   document.getElementById('formTit').textContent='新增完整紀錄';
   document.getElementById('fDate').value=td();
   ['Op','In','Ex'].forEach(function(k){document.getElementById('f'+k).value='';document.getElementById('e'+k).textContent='';document.getElementById('f'+k).classList.remove('err');});
-  document.getElementById('fNote').value='';
-  calcBal();
+  document.getElementById('fNote').value='';calcBal();
   document.getElementById('ovForm').classList.add('open');
 }
 function closeForm(){document.getElementById('ovForm').classList.remove('open');editId=null;}
@@ -384,8 +410,7 @@ function closeForm(){document.getElementById('ovForm').classList.remove('open');
 function oEdit(id){
   if(openRow){var el=document.getElementById('act-'+openRow);if(el)el.classList.remove('open');openRow=null;}
   var r=null;for(var i=0;i<recs.length;i++){if(recs[i].id===id){r=recs[i];break;}}
-  if(!r)return;
-  editId=id;
+  if(!r)return;editId=id;
   if(r.type==='full'){
     document.getElementById('formTit').textContent='修改完整紀錄';
     document.getElementById('fDate').value=r.date;
@@ -394,14 +419,12 @@ function oEdit(id){
     document.getElementById('fEx').value=fr(r.ex||0);
     document.getElementById('fNote').value=r.note||'';
     ['Op','In','Ex'].forEach(function(k){document.getElementById('e'+k).textContent='';document.getElementById('f'+k).classList.remove('err');});
-    calcBal();
-    document.getElementById('ovForm').classList.add('open');
+    calcBal();document.getElementById('ovForm').classList.add('open');
   } else {
-    curType=r.type;
-    var m=typeMeta(r.type);
+    curType=r.type;var m=typeMeta(r.type);
     document.getElementById('quickTit').textContent='修改'+m.label;
     document.getElementById('quickTit').className='stit '+m.cls;
-    document.getElementById('qAmtLabel').textContent=m.label+'金額';
+    document.getElementById('qAmtLabel').textContent=m.label+'金額'+(r.type==='op'?'（可輸入負數）':'');
     document.getElementById('btnQuickSave').className='sbtn '+m.cls;
     document.getElementById('qDate').value=r.date;
     document.getElementById('qAmt').value=fr(r.amt||0);
@@ -438,16 +461,15 @@ function doCSV(){
 }
 
 function doPDF(){
-  var r=gf();
-  var rows='';
+  var r=gf(),rows='';
   for(var j=0;j<r.length;j++){
-    var x=r[j],m=typeMeta(x.type);
-    var bg=j%2===0?'#f5f7fa':'#fff';
+    var x=r[j],m=typeMeta(x.type),bg=j%2===0?'#f5f7fa':'#fff';
+    var colors={ex:'#f06b7a',in:'#52c99a',op:'#e8c87a',full:'#6aadff'};
     if(x.type==='full'){
       var b=(x.op||0)+(x.inc||0)-(x.ex||0);
-      rows+='<tr style="background:'+bg+'"><td>'+x.date+'</td><td><span style="color:'+({ex:'#f06b7a',in:'#52c99a',op:'#e8c87a',full:'#6aadff'}[x.type]||'#666')+'">'+m.icon+' '+m.label+'</span></td><td>'+fr(x.op||0)+'</td><td>'+fr(x.inc||0)+'</td><td>'+fr(x.ex||0)+'</td><td style="color:'+(b>=0?'#1a5fd4':'#c0392b')+'">'+fr(b)+'</td><td style="font-size:11px;color:#666">'+(x.note||'')+'</td></tr>';
+      rows+='<tr style="background:'+bg+'"><td>'+x.date+'</td><td style="color:'+colors[x.type]+'">'+m.icon+' '+m.label+'</td><td>'+fr(x.op||0)+'</td><td>'+fr(x.inc||0)+'</td><td>'+fr(x.ex||0)+'</td><td style="color:'+(b>=0?'#1a5fd4':'#c0392b')+'">'+fr(b)+(b<0?' ⚠️':'')+'</td><td style="font-size:11px;color:#666">'+(x.note||'')+'</td></tr>';
     } else {
-      rows+='<tr style="background:'+bg+'"><td>'+x.date+'</td><td><span style="color:'+({ex:'#f06b7a',in:'#52c99a',op:'#e8c87a'}[x.type]||'#666')+'">'+m.icon+' '+m.label+'</span></td><td colspan="4" style="color:'+({ex:'#f06b7a',in:'#52c99a',op:'#e8c87a'}[x.type]||'#333')+'">'+fr(x.amt||0)+'</td><td style="font-size:11px;color:#666">'+(x.note||'')+'</td></tr>';
+      rows+='<tr style="background:'+bg+'"><td>'+x.date+'</td><td style="color:'+colors[x.type]+'">'+m.icon+' '+m.label+'</td><td colspan="4" style="color:'+colors[x.type]+'">'+fr(x.amt||0)+((x.type==='op'&&(x.amt||0)<0)?' ⚠️':'')+'</td><td style="font-size:11px;color:#666">'+(x.note||'')+'</td></tr>';
     }
   }
   var html='<!DOCTYPE html><html><head><meta charset="UTF-8"><title>收支記錄</title><style>body{font-family:-apple-system,sans-serif;padding:32px}table{width:100%;border-collapse:collapse;font-size:12px}th{background:#1a1a2e;color:#fff;padding:9px 10px;text-align:right}th:first-child,th:nth-child(2),th:last-child{text-align:left}td{padding:8px 10px;text-align:right;font-family:monospace}td:first-child,td:nth-child(2),td:last-child{text-align:left;font-family:sans-serif}@media print{body{margin:0}}</style></head><body><h2>收支記錄報表</h2><p style="font-size:12px;color:#666;margin-bottom:16px">'+new Date().toLocaleDateString('zh-TW')+' | '+r.length+' 筆</p><table><thead><tr><th>日期</th><th>類型</th><th>結餘</th><th>本期收入</th><th>支出</th><th>收入餘額</th><th>備註</th></tr></thead><tbody>'+rows+'</tbody></table><script>window.onload=function(){window.print();}<\/script></body></html>';
